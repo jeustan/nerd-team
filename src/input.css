@@ -204,10 +204,10 @@ table a:hover {
 }
 
 @media (max-width: 768px) {
-        nav ul {
+    nav ul {
         display: none;
         position: absolute;
-        top:218px;
+        top:214px;
         height:100%;
         left: 0;
         right: 0;
@@ -221,6 +221,7 @@ table a:hover {
     nav ul.mobile-open {
         display: flex !important;
         transition: display 1s ease;
+        padding-top:60px;
     }
 
     nav ul li {

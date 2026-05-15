@@ -15,10 +15,14 @@
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-4xl: 2.25rem;
@@ -240,14 +244,29 @@
   .inline-block {
     display: inline-block;
   }
+  .table {
+    display: table;
+  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
-  .h-16 {
-    height: calc(var(--spacing) * 16);
+  .h-fit {
+    height: fit-content;
   }
   .h-full {
     height: 100%;
+  }
+  .h-screen {
+    height: 100vh;
+  }
+  .min-h-full {
+    min-height: 100%;
+  }
+  .min-h-lvh {
+    min-height: 100lvh;
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
   }
   .w-3\/4 {
     width: calc(3 / 4 * 100%);
@@ -267,11 +286,17 @@
   .min-w-\[500px\] {
     min-width: 500px;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -300,8 +325,15 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .self-center {
+    align-self: center;
+  }
   .rounded-xs {
     border-radius: var(--radius-xs);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-1 {
     border-style: var(--tw-border-style);
@@ -314,10 +346,6 @@
   .border-t-2 {
     border-top-style: var(--tw-border-style);
     border-top-width: 2px;
-  }
-  .border-r-2 {
-    border-right-style: var(--tw-border-style);
-    border-right-width: 2px;
   }
   .border-r-5 {
     border-right-style: var(--tw-border-style);
@@ -423,6 +451,9 @@
   .text-center {
     text-align: center;
   }
+  .align-middle {
+    vertical-align: middle;
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -436,6 +467,10 @@
   }
   .underline {
     text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
@@ -474,21 +509,6 @@
       }
     }
   }
-  .max-lg\:col-start-2 {
-    @media (width < 64rem) {
-      grid-column-start: 2;
-    }
-  }
-  .max-lg\:row-start-2 {
-    @media (width < 64rem) {
-      grid-row-start: 2;
-    }
-  }
-  .max-lg\:flex {
-    @media (width < 64rem) {
-      display: flex;
-    }
-  }
   .max-lg\:w-full {
     @media (width < 64rem) {
       width: 100%;
@@ -506,6 +526,18 @@
       line-height: var(--tw-leading, var(--text-lg--line-height));
     }
   }
+  .max-lg\:text-sm {
+    @media (width < 64rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  .max-lg\:text-xl {
+    @media (width < 64rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
   .max-md\:col-start-2 {
     @media (width < 48rem) {
       grid-column-start: 2;
@@ -519,6 +551,29 @@
   .max-md\:flex {
     @media (width < 48rem) {
       display: flex;
+    }
+  }
+  .max-md\:self-center {
+    @media (width < 48rem) {
+      align-self: center;
+    }
+  }
+  .max-md\:text-base {
+    @media (width < 48rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .max-md\:text-sm {
+    @media (width < 48rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  .max-md\:text-xl {
+    @media (width < 48rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
     }
   }
   .max-md\:transition-\[height\] {
@@ -729,7 +784,7 @@ table a:hover {
   nav ul {
     display: none;
     position: absolute;
-    top: 218px;
+    top: 214px;
     height: 100%;
     left: 0;
     right: 0;
@@ -745,6 +800,7 @@ table a:hover {
   nav ul.mobile-open {
     display: flex !important;
     transition: display 1s ease;
+    padding-top: 60px;
   }
   nav ul li {
     margin: 0.5rem 0;
@@ -819,6 +875,11 @@ table a:hover {
   inherits: false;
   initial-value: 100%;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -845,6 +906,7 @@ table a:hover {
       --tw-gradient-from-position: 0%;
       --tw-gradient-via-position: 50%;
       --tw-gradient-to-position: 100%;
+      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
     }
