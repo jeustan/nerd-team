@@ -211,7 +211,7 @@ table a:hover {
         height:100%;
         left: 0;
         right: 0;
-        background: color-mix(var(--dark-alt) 90%, transparent);
+        background: rgba(0, 0, 0, 0.9);
         flex-direction: column;
         padding: 1rem 2rem;
         box-shadow: var(--emerald-border);
