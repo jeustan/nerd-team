@@ -24,23 +24,25 @@
                 <h2 class="cairo text-2xl">THIS IS THE WEBSITE TAGLINE</h2>
             </div>
             
-            <button class="mobile-menu hidden h-full border-r-2 border-t-2
-                max-lg:flex max-lg:col-start-2 max-lg:row-start-2
-                items-center justify-center m-0 text-center
-                cursor-pointer hover:bg-[var(--union-green)] transition-colors">
-                <span class="nav-toggle">menu</span>
+            <button class="mobile-menu-toggle hidden h-full
+              max-lg:flex max-lg:col-start-2 max-lg:row-start-2
+              items-center justify-center m-0 text-center
+              cursor-pointer hover:bg-[var(--union-green)] transition-colors">
+              <span class="nav-toggle">menu</span>
             </button>
             
         </div>
         
-        <nav class="mt-6">
-            <ul class="h-16 flex gap-2">
+        <nav class="mt-6 z-1000 max-md:transition-[height] max-md:duration-500 max-md:ease-in-out
+            ">
+            <ul class="lg:h-16 flex gap-2">
                 <li class="h-full hover:bg-emerald-900/20 w-full border-emerald-950 border-t-2 border-r-5 border-b-4 border-l-1 rounded-xs cairo"><a class="w-full h-full flex items-center justify-center" href="index.html">HOME</a></li>
                 <li class="h-full hover:bg-emerald-900/20 w-full border-emerald-950 border-t-2 border-r-5 border-b-4 border-l-1 rounded-xs cairo"><a class="w-full h-full flex items-center justify-center" href="profiles.html">CHARACTER PROFILES</a></li>
                 <li class="h-full hover:bg-emerald-900/20 w-full border-emerald-950 border-t-2 border-r-5 border-b-4 border-l-1 rounded-xs cairo"><a class="w-full h-full flex items-center justify-center" href="archive.html">ARCHIVE</a></li>
                 <li class="h-full hover:bg-emerald-900/20 w-full border-emerald-950 border-t-2 border-r-5 border-b-4 border-l-1 rounded-xs cairo"><a class="w-full h-full flex items-center justify-center" href="author.html">ABOUT THE AUTHOR</a></li>
             </ul>
         </nav>
+
     </header>
     
     <div class="container">
@@ -91,4 +93,6 @@
         </div>
 
     </footer>
+    <script type="module" src="./main.js"></script>
 </body>
+</html>

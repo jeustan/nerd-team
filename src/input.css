@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
 
-/* emerald-950 */
 :root {
+
+    /* emerald-950 */
     --emerald-border: oklch(26.2% 0.051 172.552);
+    
+    --dark-alt: black;
+
+    /* stone200 */
+    --light-alt: oklch(97% 0.001 106.424)
 }
 
 
@@ -32,7 +38,75 @@ body {
 }
 
 /* NAV */
+.mobile-menu-toggle {
+    position: relative;
+    z-index: 60;
+}
 
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    color: black;
+}
+
+.nav-toggle {
+    font-size: 0;
+    width:40px;
+    height:40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-toggle::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0px;
+    background-color: var(--dark-alt);
+    margin: 0;
+    transition: transform 0.5s ease-in-out, 
+        translate 0.5s ease-in-out,
+        height 0.5s ease-in-out;
+}
+
+.nav-toggle::after {
+    content: '';
+    display: block;
+    padding: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--dark-alt);
+    box-shadow: 0 10px 0 0 var(--dark-alt), 0 -10px 0 0 var(--dark-alt);
+    transition: transform 0.5s ease-in-out,
+        translate 0.5s ease-in-out,
+        box-shadow 0.5s ease-in-out;
+}
+
+.mobile-menu-toggle.active .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile-menu-toggle.active .nav-toggle::after {
+    box-shadow: 0 0 0 0 var(--dark-alt), 0 0 0 0 var(--dark-alt);
+}
+
+.mobile-menu-toggle.active .nav-toggle:before {
+    height: 4px;
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+.mobile-menu-toggle.active .nav-toggle:after {
+    /* translate: 0 -6.5px; */
+    translate: 0 -3px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
 
 /* CHARACTER PROFILES */
 
@@ -120,4 +194,31 @@ table a:hover {
 .social-links svg {
     width: 30px;
     height: 30px;
+}
+
+@media (max-width: 768px) {
+        nav ul {
+        display: none;
+        position: absolute;
+        top:218px;
+        height:100%;
+        left: 0;
+        right: 0;
+        background: color-mix(var(--dark-alt) 90%, transparent);
+        flex-direction: column;
+        padding: 1rem 2rem;
+        box-shadow: var(--emerald-border);
+        z-index: 1000;
+    }
+
+    nav ul.mobile-open {
+        display: flex !important;
+        transition: display 1s ease;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+        height:100px;
+        background-color: var(--light-alt);
+    }
 }
